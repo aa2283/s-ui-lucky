@@ -8,11 +8,11 @@ ENV TZ=Asia/Shanghai
 ENV LUCKY_VERSION=2.14.3
 
 # 3. 直接下载并安装 Lucky，不再依赖任何 API 解析
-RUN wget https://github.com/gacjie/lucky/releases/download/v${LUCKY_VERSION}/lucky_${LUCKY_VERSION}_Linux_x86_64.tar.gz \
-    && tar -xzf lucky_${LUCKY_VERSION}_Linux_x86_64.tar.gz \
+RUN wget https://github.com/gacjie/lucky/releases/download/v${LUCKY_VERSION}/lucky_${LUCKY_VERSION}_linux_x86_64.tar.gz \
+    && tar -xzf lucky_${LUCKY_VERSION}_linux_x86_64.tar.gz \
     && mv lucky /usr/local/bin/lucky \
     && chmod +x /usr/local/bin/lucky \
-    && rm -f lucky_${LUCKY_VERSION}_Linux_x86_64.tar.gz
+    && rm -f lucky_${LUCKY_VERSION}_linux_x86_64.tar.gz
 
 # 4. 创建配置持久化目录
 RUN mkdir -p /goodluck
