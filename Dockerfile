@@ -4,18 +4,15 @@ FROM alpine:latest
 RUN apk add --no-cache ca-certificates wget curl tzdata
 ENV TZ=Asia/Shanghai
 
-# 2. 直接指定稳定的最新版本号（当前最新为 2.14.3）
-ENV LUCKY_VERSION=2.14.3
-
-# 3. 直接下载并安装 Lucky，不再依赖任何 API 解析
-RUN wget https://github.com/gacjie/lucky/releases/download/v${LUCKY_VERSION}/lucky_${LUCKY_VERSION}_linux_x86_64.tar.gz \
-    && tar -xzf lucky_${LUCKY_VERSION}_linux_x86_64.tar.gz \
+# 2. 直接使用你提供的完全正确的官方 2.27.2 下载链接
+RUN wget https://github.com/gdy666/lucky/releases/download/v2.27.2/lucky_2.27.2_Linux_x86_64.tar.gz \
+    && tar -xzf lucky_2.27.2_Linux_x86_64.tar.gz \
     && mv lucky /usr/local/bin/lucky \
     && chmod +x /usr/local/bin/lucky \
-    && rm -f lucky_${LUCKY_VERSION}_linux_x86_64.tar.gz
+    && rm -f lucky_2.27.2_Linux_x86_64.tar.gz
 
-# 4. 创建配置持久化目录
+# 3. 创建配置持久化目录
 RUN mkdir -p /goodluck
 
-# 5. 启动面板
+# 4. 启动面板（使用容器内 16601 端口）
 ENTRYPOINT ["/usr/local/bin/lucky", "-c", "/goodluck", "-p", "16601"]
