@@ -15,7 +15,7 @@ if [ ! -f "/etc/frp/frpc.toml" ]; then
     cat <<EOF > /etc/frp/frpc.toml
 serverAddr = "litao.dns.army"
 serverPort = 7000
-auth.token = "你在家里Lucky设置的密码"
+auth.token = "myfrp123"
 
 [[proxies]]
 name = "s-ui-udp"
