@@ -13,7 +13,7 @@ echo "=== [2/2] 正在前台启动 frpc 穿透... ==="
 if [ ! -f "/etc/frp/frpc.toml" ]; then
     echo "警告: 未检测到 /etc/frp/frpc.toml，正在生成默认模板..."
     cat <<EOF > /etc/frp/frpc.toml
-serverAddr = "litao.dns.army"
+serverAddr = "120.231.14.147"
 serverPort = 7000
 auth.token = "myfrp123"
 
